@@ -31,7 +31,7 @@
                         if($password_input==$password){
                             // $_SESSION['id']=$id;
                             $_SESSION['username']=$username;
-                            
+
                            $this->viewadmin("masterlayout",[
                             "page"=>"loai_tin/TrangChu",
                         
