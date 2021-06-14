@@ -6,7 +6,6 @@ class App{
     protected $params=[];
 
     function __construct(){
- 
         $arr = $this->UrlProcess();
         // Controller
         if($arr!=null){
@@ -15,6 +14,7 @@ class App{
                 unset($arr[0]);
             }
         }
+        
         require_once "./mvc/controllers/". $this->controller .".php";
         $this->controller = new $this->controller;
 

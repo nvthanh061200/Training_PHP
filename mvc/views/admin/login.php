@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <base href="http://localhost/php-mvc-master/php-mvc-master/">
+    <base href="http://localhost/PHP_TRAINING/">
 
     <title>SB Admin 2 - Login</title>
 
@@ -45,10 +45,10 @@
                                     <form class="user" method="POST" action="login/login">
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
-                                                placeholder="Enter username" name="username">
+                                                placeholder="Enter username" name="username" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" name="password">
+                                            <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" name="password" required>
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -58,6 +58,9 @@
                                         </div>
                                         <button class="btn btn-primary btn-user btn-block " name="submit_login">login</button>
                                         <hr>
+                                         <a href="Register/dangky" class="btn btn-primary btn-user btn-block">
+                                                <i class="fab  fa-fw"></i> DAng Ky
+                                            </a>
                                         <a href="index.html" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
                                         </a>

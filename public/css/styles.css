@@ -80,6 +80,10 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   font-weight: 800;
   line-height: 1.2;
 }
+.container2{
+  margin-top: 100px;
+  
+}
 
 h1, .h1 {
   font-size: calc(1.375rem + 1.5vw);
@@ -592,7 +596,10 @@ progress {
   font-size: 0.875em;
   color: #6c757d;
 }
+.container2{
+  margin-top: 500px;
 
+}
 .container,
 .container-fluid,
 .container-xxl,

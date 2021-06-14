@@ -1,60 +1,44 @@
 <?php 
-	class accountmodel extends DB{
+	require_once("mvc/models/interface/IAccountModel.php");
+	class accountmodel extends DB  implements IAccountModel{
+		private $DB;
+		function __construct(){
+			$this->DB = new DB();
+		}
+
 		public function get(){
-			$sql= "select * from account";
-			return mysqli_query($this->con,$sql);
+			 $result=$this->DB->get();
+			 return $result;
 		}
-		public function get2(){
-			$sql= "select * from account";
-			$result= mysqli_query($this->con,$sql);
-			 $mang=[];
-
-            while($ac=mysqli_fetch_array($result)){
-                $obj=array(
-                    "username"=>$ac["username"],
-                    "password"=>$ac["password"],
-                    "address" => $ac["address"],
-                    "id"=>$ac["id"]
-                );
-                array_push($mang,$obj);
-            }
-            return json_encode($mang);
+		public function deleteById($id){
+			return $this->DB->deleteById($id);
 		}
-		public function delete_acc($id){
-			$sql="DELETE FROM account WHERE id = $id";
-			$result=false;
-			if(mysqli_query($this->con,$sql)){
-				$result=true;
-			}
-			return json_encode($result);
+		public function addAccountBy($username, $password, $address,$fullname){
+			return $this->DB->addAccountBy($username, $password, $address,$fullname);
 		}
-		public function add_account($username, $password, $address){
-			$sql="INSERT INTO `account`( `username`, `password`, `address`) VALUES ('".$username."','".$password."','".$address."')";
-			return mysqli_query($this->con,$sql);
+		public function getAccountById($id){
+			return $this->DB->getAccountById($id);
 		}
-		public function get_acc_by_id($id){
-			$sql= "select * from account where id= $id";
-			return mysqli_query($this->con,$sql);
-		}
-		public function update_acc($username,$password,$address,$id){
-			if(empty($username)){
-				return 0;
-			}
-			if(empty($password)){
-				return 0;
-			}
-			if(empty($address)){
-				return 0;
-			}
-			if(empty($id)){
-				return 0;
-			}
-			else{
-				$sql= "UPDATE `account` SET `username`='$username',`password`='$password',`address`='$address' WHERE id=$id";
-				return mysqli_query($this->con,$sql);
-			}
+		public function updateAccountById($fullname,$address,$hashPassWord,$id){
+			return $this->DB->updateAccountById($fullname,$address,$hashPassWord,$id);
 			
+		}
+		public function updateF_A($fullname,$address,$id){
+			$sql= "UPDATE `account` SET `fullname`='$fullname',`address`='$address' WHERE id=$id";
+			if($this->DB->query($sql)){
+				return 1;
+			}return 0;
 
+		}
+
+		public function check_username($username){
+			$sql="select * from account where username='$username'";
+			$result= $this->DB->query($sql);
+
+			if(mysqli_num_rows($result)>0){
+				return 1;				
+			}
+			return 0;
 		}
 	}
  ?>

@@ -1,43 +1,43 @@
-    <!-- Page Header-->
-    <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
-        <div class="container position-relative px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-                    <div class="site-heading">
-                        <h1>Clean Blog</h1>
-                        <span class="subheading">A Blog Theme by Start Bootstrap</span>
-                    </div>
-                </div>
-            </div> 
-        </div>
-        </header>
-  <!-- Main Content-->
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <?php 
-                    while($tin = mysqli_fetch_array($data["tin"])){?>
-                    <div class="col-lg-6 col-6 ">
-                        <div class="card mb-3" style="max-width: 540px;">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                  <img src="public/img/<?php echo $tin["hinh_anh"]; ?> " alt="...">
-                                </div>
-                                <h1>hello Nguyen Van Thanh</h1>
-                                <a href="">
-                                     <div class="col-md-8">
-                                  <div class="card-body">
-                                    <h5 class="card-title"><?php echo $tin["title"] ;?></h5>
-                                    <p class="card-text"> <?php echo $tin["content"] ;?></p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                  </div>
-                                </div>
-                                </a>
-                               
-                            </div>
-                        </div>
-                    </div>
-                    <?php
-                    }
-                 ?>
-            </div>
-        </div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">STT</th>
+      <th scope="col">Thông tin sản phẩm</th>
+      <th scope="col">Hình ảnh222</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php 
+    $i=1;
+        while($tin = mysqli_fetch_array($data["tin"])){  ?> 
+            <tr>
+                <th scope="col"><?php  echo $i; $i+=1; ?></th>
+                <th scope="col"><?php echo $tin["content"]; ?></th>
+                <th scope="col">
+                    <a href="home/content/<?php echo $tin["id"]; ?>">
+                            <img class="img_product" src="public/img/<?php echo $tin["hinh_anh"] ?>">
+                    </a>
+                </th>
+                
+            </tr>
+
+
+        <?php  }
+     ?>
+    
+  </tbody>
+</table>
+<style type="text/css">
+    
+    .img_product{
+        width: 100px;
+    }
+    .btn_addkk{
+          text-decoration: none;
+    border: 1px solid #000;
+    padding: 5px 20px;
+    background-color: skyblue;
+    color: #00445f;
+    font-size: 17px;
+    }
+</style>
